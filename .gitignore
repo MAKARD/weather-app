@@ -1,0 +1,8 @@
+node_modules/
+.yarn/
+vendor/
+build/
+Pods/
+.gradle
+.cxx
+.kotlin
