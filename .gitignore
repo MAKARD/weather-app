@@ -6,3 +6,7 @@ Pods/
 .gradle
 .cxx
 .kotlin
+
+.env.*
+!.env.example
+.DS_Store
