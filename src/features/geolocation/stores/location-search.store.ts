@@ -22,8 +22,7 @@ export const useLocationSearch = create<LocationsSearchStore>()(immer((set, get)
   searchTerm: '',
   clearLocations: () => {
     set({
-      locations: [],
-      searchTerm: ''
+      locations: []
     });
   },
   setSearchTerm: (searchTerm) => {

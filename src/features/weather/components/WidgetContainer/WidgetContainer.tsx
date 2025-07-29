@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Text, View, ViewStyle } from 'react-native';
+import { BlurView } from '@react-native-community/blur';
 
 import { styles } from './styles';
 
@@ -17,6 +18,11 @@ export const WidgetContainer: React.FC<React.PropsWithChildren<Props>> = ({
 }) => {
   return (
     <View style={[styles.container, size === 'big' && styles.bigContainer, style]}>
+      <BlurView
+        style={styles.blurView}
+        blurType="light"
+        blurAmount={5}
+      />
       <Text style={styles.headerText}>
         {title}
       </Text>

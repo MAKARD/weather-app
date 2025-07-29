@@ -9,12 +9,14 @@ export const styles = StyleSheet.create({
   },
   temperatureText: {
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '700',
     color: '#FFFFFF',
     width: 30
   },
   temperatureTextColder: {
-    color: '#A0C4FF'
+    opacity: 0.7,
+    fontWeight: '500'
+
   },
   rangeBackground: {
     height: 5,

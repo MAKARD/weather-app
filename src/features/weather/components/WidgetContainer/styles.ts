@@ -6,11 +6,12 @@ export const styles = StyleSheet.create({
   container: {
     paddingVertical: 16,
     paddingHorizontal: 16,
-    backgroundColor: 'rgba(255, 255, 255, 0.1))',
     borderRadius: 12,
     marginBottom: 16,
     width: width * 0.435,
-    height: width * 0.435
+    height: width * 0.435,
+    position: 'relative',
+    overflow: 'hidden'
   },
   bigContainer: {
     width: 'auto',
@@ -24,5 +25,12 @@ export const styles = StyleSheet.create({
     letterSpacing: 1,
     marginBottom: 10,
     opacity: 0.5
+  },
+  blurView: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0
   }
 });

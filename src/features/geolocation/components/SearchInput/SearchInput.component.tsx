@@ -5,39 +5,46 @@ import { styles } from './styles';
 
 interface Props {
   onChange: (value: string) => void;
-  onSearch: () => Promise<void>;
+  onCancel: () => void;
+  onFocus: () => void;
+  onBlur: () => void;
   isSearching: boolean;
   value: string;
 }
 
 export const SearchInput: React.FC<Props> = ({
   onChange,
-  onSearch,
+  onCancel,
+  onFocus,
+  onBlur,
   isSearching,
   value
 }) => {
-  const canSubmit = !!value && !isSearching;
-
   return (
     <View style={styles.container}>
-      <TextInput
-        value={value}
-        placeholder="Search for a city"
-        onChangeText={onChange}
-        onSubmitEditing={canSubmit ? onSearch : undefined}
-        submitBehavior={canSubmit ? 'blurAndSubmit' : 'submit'}
-        returnKeyLabel="Search"
-        returnKeyType="search"
-        style={styles.input}
-        readOnly={isSearching}
-      />
-      {isSearching && <ActivityIndicator size="small" style={styles.loader} />}
-      {canSubmit && (
+      <View style={styles.inputContainer}>
+        <TextInput
+          value={value}
+          placeholder="Search for a city"
+          onChangeText={onChange}
+          submitBehavior="blurAndSubmit"
+          returnKeyLabel="Search"
+          returnKeyType="search"
+          style={styles.input}
+          autoCorrect={false}
+          onFocus={onFocus}
+          onBlur={onBlur}
+        />
+        {isSearching && <ActivityIndicator size="small" style={styles.loader} />}
+      </View>
+      {!!value && (
         <Pressable
           style={styles.cancelButton}
           onPress={() => {
-            onChange('');
-            Keyboard.dismiss();
+            onCancel();
+            queueMicrotask(() => {
+              Keyboard.dismiss();
+            });
           }}
         >
           <Text style={styles.cancelButtonText}>

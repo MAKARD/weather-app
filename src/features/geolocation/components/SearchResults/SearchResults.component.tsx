@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ScrollView, Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import uuid from 'react-native-uuid';
 
 import { styles } from './styles';
@@ -8,15 +8,27 @@ import { Location } from '@/domain/models/Location.model';
 
 interface Props {
   locations: Array<Location>;
+  isNoResults: boolean;
   onLocationPress: (location: Location) => void;
 }
 
 export const SearchResults: React.FC<Props> = ({
   locations,
+  isNoResults,
   onLocationPress
 }) => {
+  if (isNoResults) {
+    return (
+      <View style={[styles.container, styles.centeringContainer]}>
+        <Text style={styles.noResultsText}>
+          No Results
+        </Text>
+      </View>
+    );
+  }
+
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       {locations.map((location) => (
         <TouchableOpacity
           onPress={() => onLocationPress(location)}
@@ -28,6 +40,6 @@ export const SearchResults: React.FC<Props> = ({
           </Text>
         </TouchableOpacity>
       ))}
-    </ScrollView>
+    </View>
   );
 };

@@ -6,11 +6,15 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 8,
-    backgroundColor: '#F6F6F6'
+    backgroundColor: 'white'
+  },
+  inputContainer: {
+    flex: 1,
+    position: 'relative',
+    height: 36
   },
   input: {
     flex: 1,
-    height: 36,
     paddingHorizontal: 12,
     backgroundColor: '#E5E5EA',
     borderRadius: 10,
@@ -18,7 +22,9 @@ export const styles = StyleSheet.create({
     color: '#000'
   },
   loader: {
-    marginLeft: 8
+    position: 'absolute',
+    right: 8,
+    top: 8
   },
   cancelButton: {
     marginLeft: 8
