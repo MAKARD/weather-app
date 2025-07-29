@@ -8432,6 +8432,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-linear-gradient@npm:^2.8.3":
+  version: 2.8.3
+  resolution: "react-native-linear-gradient@npm:2.8.3"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 10c0/cd41bf28e9f468173f1e5e768685128ebf8bbf9077710e43b63482c1a76f37bff8ab3d1d6adfd7b4d54e648672356c02bea46c47cdbdb1844ebe5c5caf720114
+  languageName: node
+  linkType: hard
+
 "react-native-safe-area-context@npm:^5.5.2":
   version: 5.5.2
   resolution: "react-native-safe-area-context@npm:5.5.2"
@@ -9986,6 +9996,7 @@ __metadata:
     react: "npm:19.1.0"
     react-native: "npm:0.80.2"
     react-native-dotenv: "npm:^3.4.11"
+    react-native-linear-gradient: "npm:^2.8.3"
     react-native-safe-area-context: "npm:^5.5.2"
     react-native-screens: "npm:^4.13.1"
     react-native-uuid: "npm:^2.0.3"

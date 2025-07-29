@@ -5,6 +5,7 @@ import { FeelsLike } from '../../components/FeelsLike';
 import { WidgetContainer } from '../../components/WidgetContainer';
 import { Humidity } from '../../components/Humidity';
 import { Wind } from '../../components/Wind';
+import { FiveDaysForecast } from '../../components/FiveDaysForecast';
 
 import { useWeatherInLocation } from './useWeatherInLocation.controller';
 import { styles } from './styles';
@@ -18,7 +19,8 @@ export const WeatherInLocation: React.FC = () => {
     wind,
     isLoading,
     close,
-    backgroundImage
+    backgroundImage,
+    forecast
   } = useWeatherInLocation();
 
   if (isLoading) {
@@ -63,7 +65,7 @@ export const WeatherInLocation: React.FC = () => {
           </Text>
         </TouchableOpacity>
       </View>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
         <View style={styles.summary}>
           <Text style={styles.cityText}>
             {city}
@@ -82,6 +84,11 @@ export const WeatherInLocation: React.FC = () => {
               L:{conditions.minTemperature}°
             </Text>
           </View>
+        </View>
+        <View style={styles.widgetsContainer}>
+          <WidgetContainer title="5-DAY FORECAST" size="big" style={styles.widgetsContainerNoBottomPadding}>
+            <FiveDaysForecast list={forecast} />
+          </WidgetContainer>
         </View>
         <View style={styles.widgetsContainer}>
           <WidgetContainer title="FEELS LIKE" size="small">

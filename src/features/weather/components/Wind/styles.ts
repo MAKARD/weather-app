@@ -28,13 +28,13 @@ export const styles = StyleSheet.create({
     fontSize: 16
   },
   textInfoValue: {
-    color: 'rgba(255, 255, 255, 0.7))'
+    color: 'rgba(255, 255, 255, 0.7)'
   },
   separator: {
     width: '100%',
     height: 1,
 
-    backgroundColor: 'rgba(255, 255, 255, 0.5))'
+    backgroundColor: 'rgba(255, 255, 255, 0.2)'
   },
   compassInfoContainer: {
     position: 'relative',

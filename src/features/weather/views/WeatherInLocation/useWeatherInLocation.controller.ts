@@ -12,7 +12,9 @@ export const useWeatherInLocation = () => {
   const [isLoading, setLoading] = React.useState(false);
 
   const fetchWeather = useWeather((state) => state.fetchWeather);
+  const fetchForecast = useWeather((state) => state.fetchForecast);
   const weather = useWeather((state) => state.weather);
+  const forecast = useWeather((state) => state.forecast);
   const clearWeather = useWeather((state) => state.clearWeather);
 
   const backgroundImage = useBackgroundImage(weather?.weather[0].main);
@@ -20,10 +22,16 @@ export const useWeatherInLocation = () => {
   React.useEffect(() => {
     setLoading(true);
 
-    fetchWeather({
-      lat: route.params.location.lat,
-      lon: route.params.location.lon
-    }).then(() => {
+    Promise.all([
+      fetchWeather({
+        lat: route.params.location.lat,
+        lon: route.params.location.lon
+      }),
+      fetchForecast({
+        lat: route.params.location.lat,
+        lon: route.params.location.lon
+      })
+    ]).then(() => {
       setLoading(false);
     });
 
@@ -53,6 +61,16 @@ export const useWeatherInLocation = () => {
       direction: Math.round(weather?.wind.deg || 0)
     },
     city: route.params.location.name,
+    forecast: React.useMemo(() => (
+      forecast
+        .map((entry) => ({
+          weekday: entry.weekday,
+          minTemperature: Math.round(entry.main.temp_min),
+          maxTemperature: Math.round(entry.main.temp_max),
+          weatherType: entry.weather[0].main
+        }))
+        .slice(0, 5)
+    ), [isLoading]),
     backgroundImage
   };
 };

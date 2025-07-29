@@ -62,5 +62,11 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
 
     justifyContent: 'space-between'
+  },
+  widgetsContainerNoBottomPadding: {
+    paddingBottom: 0
+  },
+  scrollContainer: {
+    paddingBottom: 20
   }
 });
