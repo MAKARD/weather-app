@@ -36,6 +36,7 @@ export const LocationSearch: React.FC = () => {
       <SearchResults
         locations={locations}
         isNoResults={isNoResults}
+        searchTerm={searchTerm.trim()}
         onLocationPress={navigateToWeatherInLocation}
       />
       {showRecentSearches && (
@@ -48,6 +49,7 @@ export const LocationSearch: React.FC = () => {
           <SearchResults
             locations={recentSearches}
             isNoResults={false}
+            searchTerm=""
             onLocationPress={navigateToWeatherInLocation}
           />
         </View>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Image, Text, View } from 'react-native';
-import { v4 } from 'react-native-uuid/dist/v4';
+import uuid from 'react-native-uuid';
 
 import { styles } from './styles';
 import { TemperatureRange } from './components/TemperatureRange';
@@ -64,7 +64,7 @@ export const FiveDaysForecast: React.FC<Props> = ({
       {list.map((entry) => (
         <View
           style={styles.forecastItemContainer}
-          key={v4()}
+          key={uuid.v4()}
         >
           <Text style={styles.weekdayText}>
             {entry.weekday.slice(0, 3)}
