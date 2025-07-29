@@ -1,7 +1,9 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { RouteProp } from '@react-navigation/native';
 
 import { LocationSearch } from '@/features/geolocation/views/LocationSearch';
 import { Location } from '@/domain/models/Location.model';
+import { WeatherInLocation } from '@/features/weather/views/WeatherInLocation';
 
 type RootStack = {
   LocationSearch: undefined;
@@ -20,7 +22,7 @@ export const RootStack = createNativeStackNavigator<RootStack>({
       }
     },
     WeatherInLocation: {
-      screen: () => null,
+      screen: WeatherInLocation,
       options: () => ({
         presentation: 'modal',
         headerShown: false
@@ -32,5 +34,7 @@ export const RootStack = createNativeStackNavigator<RootStack>({
 declare global {
   namespace ReactNavigation {
     interface RootParamList extends RootStack { }
+
+    type RouteFor<T extends keyof RootStack> = RouteProp<RootStack, T>;
   }
 }

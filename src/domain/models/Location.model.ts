@@ -1,7 +1,7 @@
-export interface Location {
+import { Coordinates } from './Coordinates.model';
+
+export interface Location extends Coordinates {
   name: string;
-  lat: number;
-  lon: number;
   country: string;
   state?: string;
 }

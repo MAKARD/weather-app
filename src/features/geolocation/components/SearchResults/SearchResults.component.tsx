@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Pressable, ScrollView, Text } from 'react-native';
+import { ScrollView, Text, TouchableOpacity } from 'react-native';
 import uuid from 'react-native-uuid';
 
 import { styles } from './styles';
@@ -18,18 +18,15 @@ export const SearchResults: React.FC<Props> = ({
   return (
     <ScrollView style={styles.container}>
       {locations.map((location) => (
-        <Pressable
+        <TouchableOpacity
           onPress={() => onLocationPress(location)}
-          style={({ pressed }) => ([
-            styles.itemContainer,
-            pressed && styles.itemContainerPressed
-          ])}
+          style={styles.itemContainer}
           key={uuid.v4()}
         >
           <Text style={styles.itemText}>
             {location.name} {location.country} {location.state}
           </Text>
-        </Pressable>
+        </TouchableOpacity>
       ))}
     </ScrollView>
   );

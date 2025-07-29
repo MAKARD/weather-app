@@ -11,9 +11,6 @@ export const styles = StyleSheet.create({
     borderBottomColor: '#C6C6C8',
     backgroundColor: '#FFFFFF'
   },
-  itemContainerPressed: {
-    opacity: 0.5
-  },
   itemText: {
     fontSize: 16,
     color: '#000000'
