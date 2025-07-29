@@ -1,28 +1,39 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { RouteProp } from '@react-navigation/native';
 
-import { LocationSearch } from '@/features/geolocation/views/LocationSearch';
+import { PreviewWeatherInLocation } from '../screens/PreviewWeatherInLocation';
+import { LocationSearch } from '../screens/LocationSearch';
+import { SavedLocations } from '../screens/SavedLocations';
+
 import { Location } from '@/domain/models/Location.model';
-import { WeatherInLocation } from '@/features/weather/views/WeatherInLocation';
 
 type RootStack = {
   LocationSearch: undefined;
-  WeatherInLocation: {
+  PreviewWeatherInLocation: {
     location: Location;
   };
+  SavedLocations: undefined;
 }
 
 export const RootStack = createNativeStackNavigator<RootStack>({
-  initialRouteName: 'LocationSearch',
+  initialRouteName: 'SavedLocations',
   screens: {
-    LocationSearch: {
-      screen: LocationSearch,
+    SavedLocations: {
+      screen: SavedLocations,
       options: {
         title: 'Weather'
       }
     },
-    WeatherInLocation: {
-      screen: WeatherInLocation,
+    LocationSearch: {
+      screen: LocationSearch,
+      options: {
+        title: 'Weather',
+        headerBackVisible: false,
+        animation: 'none'
+      }
+    },
+    PreviewWeatherInLocation: {
+      screen: PreviewWeatherInLocation,
       options: () => ({
         presentation: 'modal',
         headerShown: false

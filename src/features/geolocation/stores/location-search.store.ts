@@ -10,6 +10,7 @@ const getLocationsList = HTTPService
 
 interface LocationsSearchStore {
   locations: Array<Location>;
+  isSearching: boolean;
   searchTerm: string;
 
   setSearchTerm(searchTerm: string): void;
@@ -20,6 +21,7 @@ interface LocationsSearchStore {
 export const useLocationSearch = create<LocationsSearchStore>()(immer((set, get) => ({
   locations: [],
   searchTerm: '',
+  isSearching: false,
   clearLocations: () => {
     set({
       locations: []
@@ -33,6 +35,8 @@ export const useLocationSearch = create<LocationsSearchStore>()(immer((set, get)
   fetchLocations: async () => {
     const { searchTerm } = get();
 
+    set({ isSearching: true });
+
     const locations = await getLocationsList({
       queryParams: {
         q: searchTerm,
@@ -40,6 +44,6 @@ export const useLocationSearch = create<LocationsSearchStore>()(immer((set, get)
       }
     });
 
-    set({ locations });
+    set({ locations, isSearching: false });
   }
 })));

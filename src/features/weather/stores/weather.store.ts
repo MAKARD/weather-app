@@ -54,7 +54,7 @@ export const useWeather = create<WeatherStore>()(immer((set) => ({
       const date = entry.dt_txt.slice(0, 10);
 
       if (!previousValue[date]) {
-        previousValue[date] = [];
+        previousValue[date] = [entry];
       } else {
         previousValue[date].push(entry);
       }

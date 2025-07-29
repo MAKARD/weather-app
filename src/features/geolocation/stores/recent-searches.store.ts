@@ -26,7 +26,6 @@ export const useRecentSearches = create<RecentSearches>()(
 
           state.items.unshift(location);
           state.items = state.items.slice(0, 5);
-
         });
       }
     })),
