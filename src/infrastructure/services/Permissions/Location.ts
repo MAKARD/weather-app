@@ -1,4 +1,4 @@
-import { Linking, Platform } from 'react-native';
+import { Platform } from 'react-native';
 import * as Permissions from 'react-native-permissions';
 import ReactNativeInfo from 'react-native-device-info';
 
@@ -35,18 +35,8 @@ export namespace Location {
     return false;
   }
 
-  export const openSettings = () => {
-    Platform.select({
-      android: () => Linking.sendIntent('android.settings.LOCATION_SOURCE_SETTINGS'),
-      // cSpell:disable-next-line
-      ios: () => Linking.openURL('App-Prefs:Privacy&path=LOCATION'),
-      default: () => {}
-    })();
-  };
-
   export async function request() {
     if (!await ReactNativeInfo.isLocationEnabled()) {
-      openSettings();
 
       return false;
     }
@@ -55,8 +45,6 @@ export namespace Location {
       const initialPermission = await Permissions.check(Permissions.PERMISSIONS.IOS.LOCATION_WHEN_IN_USE);
 
       if (initialPermission === Permissions.RESULTS.BLOCKED) {
-        Linking.openSettings();
-
         return false;
       }
 
@@ -72,7 +60,6 @@ export namespace Location {
       const basePermission = await Permissions.request(Permissions.PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
 
       if (initialPermission === Permissions.RESULTS.DENIED && basePermission === Permissions.RESULTS.BLOCKED) {
-        Linking.openSettings();
 
         return false;
       }

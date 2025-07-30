@@ -27,6 +27,14 @@ export const useDefaultLocation = create<DefaultLocation>()(
             lat: coordinates.lat,
             lon: coordinates.lon
           }
+        }).catch(() => {
+          return {
+            address: {
+              state: '',
+              city: '',
+              country_code: ''
+            }
+          };
         });
 
         set({

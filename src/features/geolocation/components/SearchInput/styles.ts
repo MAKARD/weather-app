@@ -14,7 +14,8 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.grayLight,
     borderRadius: 10,
     fontSize: 16,
-    color: colors.black
+    color: colors.black,
+    paddingVertical: 0
   },
   loader: {
     position: 'absolute',

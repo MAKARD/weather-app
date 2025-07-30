@@ -4,6 +4,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import { useSavedLocations } from '@/features/geolocation/stores/saved-locations.store';
 import { useWeather } from '@/features/weather/stores/weather.store';
+import { useDefaultLocation } from '@/features/geolocation/stores/default-location.store';
 
 export const usePreviewWeatherInLocation = () => {
   const route = useRoute<ReactNavigation.RouteFor<'PreviewWeatherInLocation'>>();
@@ -17,12 +18,14 @@ export const usePreviewWeatherInLocation = () => {
   const saveLocations = useSavedLocations((state) => state.items);
   const saveLocation = useSavedLocations((state) => state.putItem);
   const weather = useWeather((state) => state.weather);
+  const defaultLocation = useDefaultLocation((state) => state.location);
+  const setDefaultLocation = useDefaultLocation((state) => state.save);
 
   const isSaved = React.useMemo(() => {
     return !!saveLocations.find((entry) => entry.lat === coordinates.lat && entry.lon === coordinates.lon);
   }, [saveLocations]);
 
-  const addToSavedLocations = React.useCallback(() => {
+  const addToSavedLocations = React.useCallback(async () => {
     if (!weather) {
       return;
     }
@@ -35,8 +38,15 @@ export const usePreviewWeatherInLocation = () => {
       }
     });
 
+    if (!defaultLocation) {
+      await setDefaultLocation({
+        lat: route.params.location.lat,
+        lon: route.params.location.lon
+      });
+    }
+
     navigation.popTo('SavedLocations');
-  }, [weather, isSaved]);
+  }, [weather, defaultLocation]);
 
   React.useEffect(() => {
     if (!weather || !isSaved) {

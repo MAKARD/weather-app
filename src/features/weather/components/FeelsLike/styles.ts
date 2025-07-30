@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 import { colors } from '@/ui/colors';
 
@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     flex: 1
   },
   description: {
-    fontSize: 16,
+    fontSize: Platform.select({ android: 13, default: 16 }),
     color: colors.white
   }
 });

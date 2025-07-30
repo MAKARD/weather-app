@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ActivityIndicator, TextInput, View } from 'react-native';
+import { ActivityIndicator, Pressable, TextInput } from 'react-native';
 
 import { styles } from './styles';
 
@@ -23,7 +23,7 @@ export const SearchInput: React.FC<Props> = ({
   isSearching
 }) => {
   return (
-    <View style={styles.inputContainer}>
+    <Pressable style={styles.inputContainer} onPress={onPress}>
       <TextInput
         value={value}
         placeholder="Search for a city"
@@ -35,11 +35,11 @@ export const SearchInput: React.FC<Props> = ({
         autoCorrect={false}
         onFocus={onFocus}
         onBlur={onBlur}
-        readOnly={readOnly}
         onPress={onPress}
+        readOnly={readOnly}
         autoFocus
       />
       {isSearching && <ActivityIndicator size="small" style={styles.loader} />}
-    </View>
+    </Pressable>
   );
 };

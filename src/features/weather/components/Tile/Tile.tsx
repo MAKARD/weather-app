@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, ViewStyle } from 'react-native';
+import { Platform, Text, View, ViewStyle } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
 
 import { styles } from './styles';
@@ -21,6 +21,7 @@ export const Tile: React.FC<React.PropsWithChildren<Props>> = ({
       <BlurView
         style={styles.blurView}
         blurType="light"
+        blurRadius={Platform.select({ android: 25, default: undefined })}
         blurAmount={5}
       />
       <Text style={styles.headerText}>

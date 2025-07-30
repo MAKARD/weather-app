@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Image, TouchableOpacity, View } from 'react-native';
+import { Image, Platform, TouchableOpacity, View } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
 
 import { useWeatherInLocation } from './useWeatherInLocation.controller';
@@ -26,6 +26,7 @@ export const WeatherInLocation: React.FC = () => {
           <BlurView
             style={styles.blurView}
             blurType="light"
+            blurRadius={Platform.select({ android: 25, default: undefined })}
             blurAmount={5}
           />
           <View

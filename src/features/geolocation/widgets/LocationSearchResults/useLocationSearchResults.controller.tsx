@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { Keyboard } from 'react-native';
 
 import { useRecentSearches } from '../../stores/recent-searches.store';
 import { useLocationSearch } from '../../stores/location-search.store';
@@ -17,6 +18,7 @@ export const useLocationSearchResults = () => {
 
   const onLocationPress = React.useCallback((location: Location) => {
     saveSearch(location);
+    Keyboard.dismiss();
     navigation.navigate('PreviewWeatherInLocation', { location });
   }, []);
 
