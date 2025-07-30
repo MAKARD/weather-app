@@ -18,7 +18,6 @@ export namespace WeatherInLocation {
 
   export type ResponseDTO = {
     coord: Coordinates;
-    name: string;
     weather: Array<Weather>;
     main: Conditions;
     wind: Wind;

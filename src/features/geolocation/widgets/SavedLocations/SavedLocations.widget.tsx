@@ -12,6 +12,7 @@ interface Props {
     city: string;
     temperature: number;
     weatherType: WeatherType;
+    isDefault: boolean;
   }) => React.ReactNode;
 }
 
@@ -33,8 +34,9 @@ export const SavedLocations: React.FC<Props> = ({
         >
           {renderItem({
             city: location.name,
-            temperature: Math.round(location.lastKnownWeather.conditions.temp),
-            weatherType: location.lastKnownWeather.weather.main
+            temperature: Math.round(location.lastKnownWeather?.conditions.temp || 0),
+            weatherType: location.lastKnownWeather?.weather.main || 'Clear',
+            isDefault: location.isDefault
           })}
         </TouchableOpacity>
       ))}

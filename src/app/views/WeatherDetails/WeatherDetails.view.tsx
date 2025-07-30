@@ -1,24 +1,26 @@
 import * as React from 'react';
 import { ScrollView, Text, View } from 'react-native';
 
-import { Tile } from '../../components/Tile/Tile';
-import { FiveDaysForecast } from '../../components/FiveDaysForecast';
-import { FeelsLike } from '../../components/FeelsLike';
-import { Humidity } from '../../components/Humidity';
-import { Wind } from '../../components/Wind';
-import { WeatherImage } from '../../components/WeatherImage';
-
 import { styles } from './styles';
 import { useWeatherDetails, UseWeatherDetailsParams } from './useWeatherDetails.controller';
 
+import { WeatherImage } from '@/features/weather/components/WeatherImage';
+import { Tile } from '@/features/weather/components/Tile';
+import { FiveDaysForecast } from '@/features/weather/components/FiveDaysForecast';
+import { FeelsLike } from '@/features/weather/components/FeelsLike';
+import { Humidity } from '@/features/weather/components/Humidity';
+import { Wind } from '@/features/weather/components/Wind';
+
 interface Props extends UseWeatherDetailsParams {
   Header?: React.ReactNode;
-  city: string;
+  Footer?: React.ReactNode;
+  city?: string;
 }
 
 export const WeatherDetails: React.FC<Props> = ({
   coordinates,
   Header = null,
+  Footer = null,
   city
 }) => {
   const {
@@ -45,6 +47,7 @@ export const WeatherDetails: React.FC<Props> = ({
             </Text>
           </View>
         </View>
+        {Footer}
       </WeatherImage>
     );
   }
@@ -105,6 +108,7 @@ export const WeatherDetails: React.FC<Props> = ({
           </View>
         </ScrollView>
       </View>
+      {Footer}
     </WeatherImage>
   );
 };

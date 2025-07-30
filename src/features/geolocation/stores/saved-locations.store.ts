@@ -13,7 +13,7 @@ interface LastKnownWeather {
 }
 
 interface SavedLocation extends Location {
-  lastKnownWeather: LastKnownWeather;
+  lastKnownWeather?: LastKnownWeather;
 }
 
 interface SavedLocations {
@@ -22,7 +22,6 @@ interface SavedLocations {
   putItem(location: SavedLocation): void;
 }
 
-// AsyncStorage.getAllKeys().then((keys) => AsyncStorage.multiRemove(keys));
 export const useSavedLocations = create<SavedLocations>()(
   persist(
     immer((set) => ({
@@ -38,7 +37,7 @@ export const useSavedLocations = create<SavedLocations>()(
             return;
           }
 
-          state.items.push({
+          state.items.unshift({
             ...location
           });
         });

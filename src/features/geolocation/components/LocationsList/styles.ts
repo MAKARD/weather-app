@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import { colors } from '@/ui/colors';
+
 export const styles = StyleSheet.create({
   container: {
   },
@@ -13,10 +15,10 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: '#C6C6C8',
-    backgroundColor: '#FFFFFF'
+    backgroundColor: colors.white
   },
   noResultsText: {
-    color: '#000000',
+    color: colors.black,
     fontSize: 25,
     fontWeight: 700,
     marginBottom: 300

@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { usePreviewWeatherInLocation } from './usePreviewWeatherInLocation.controller';
 
-import { WeatherDetails } from '@/features/weather/widgets/WeatherDetails';
 import { SecondaryButton } from '@/ui/components/SecondaryButton';
+import { WeatherDetails } from '@/app/views/WeatherDetails';
 
 export const PreviewWeatherInLocation: React.FC = () => {
   const {

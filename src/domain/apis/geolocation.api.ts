@@ -15,3 +15,24 @@ export namespace SearchLocation {
 
   export type ResponseDTO = Array<Location>;
 }
+
+export namespace ReverseLocation {
+  export const api: API = {
+    method: 'GET',
+    path: '/reverse'
+  };
+
+  export type ResponseDTO = {
+    address: {
+      city?: string;
+      state: string;
+      country_code: string;
+    };
+  };
+
+  export type QueryDTO = {
+    lat: number;
+    lon: number;
+    format: string;
+  };
+}

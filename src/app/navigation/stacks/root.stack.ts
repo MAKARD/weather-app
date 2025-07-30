@@ -4,6 +4,8 @@ import { RouteProp } from '@react-navigation/native';
 import { PreviewWeatherInLocation } from '../screens/PreviewWeatherInLocation';
 import { LocationSearch } from '../screens/LocationSearch';
 import { SavedLocations } from '../screens/SavedLocations';
+import { DefaultLocation } from '../screens/DefaultLocation';
+import { WeatherInLocation } from '../screens/WeatherInLocation';
 
 import { Location } from '@/domain/models/Location.model';
 
@@ -12,12 +14,22 @@ type RootStack = {
   PreviewWeatherInLocation: {
     location: Location;
   };
+  WeatherInLocation: {
+    location: Location;
+  };
   SavedLocations: undefined;
+  DefaultLocation: undefined;
 }
 
 export const RootStack = createNativeStackNavigator<RootStack>({
-  initialRouteName: 'SavedLocations',
+  initialRouteName: 'DefaultLocation',
   screens: {
+    DefaultLocation: {
+      screen: DefaultLocation,
+      options: {
+        headerShown: false
+      }
+    },
     SavedLocations: {
       screen: SavedLocations,
       options: {
@@ -32,12 +44,18 @@ export const RootStack = createNativeStackNavigator<RootStack>({
         animation: 'none'
       }
     },
+    WeatherInLocation: {
+      screen: WeatherInLocation,
+      options: {
+        headerShown: false
+      }
+    },
     PreviewWeatherInLocation: {
       screen: PreviewWeatherInLocation,
-      options: () => ({
+      options: {
         presentation: 'modal',
         headerShown: false
-      })
+      }
     }
   }
 });

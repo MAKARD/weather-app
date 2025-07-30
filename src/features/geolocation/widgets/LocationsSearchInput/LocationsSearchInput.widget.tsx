@@ -2,20 +2,16 @@ import * as React from 'react';
 
 import { SearchInput } from '../../components/SearchInput';
 
-import { useLocationsSearchInput, UseLocationsSearchInputParams } from './useLocationsSearchInput.controller';
+import { useLocationsSearchInput } from './useLocationsSearchInput.controller';
 
-interface Props extends UseLocationsSearchInputParams {}
-
-export const LocationsSearchInput: React.FC<Props> = ({
-  onSearch
-}) => {
+export const LocationsSearchInput: React.FC<{}> = () => {
   const {
     onChange,
     onFocus,
     onBlur,
     isSearching,
     value
-  } = useLocationsSearchInput({ onSearch });
+  } = useLocationsSearchInput();
 
   return (
     <SearchInput

@@ -1,14 +1,14 @@
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
-import { HTTPService } from '@/infrastructure/services/HTTPService';
 import { ForecastInLocation, WeatherInLocation } from '@/domain/apis/weather.api';
 import { Coordinates } from '@/domain/models/Coordinates.model';
+import { OpenWeatherService } from '@/infrastructure/services/HTTPService';
 
-const getWeather = HTTPService
+const getWeather = OpenWeatherService
   .createRequest<WeatherInLocation.ResponseDTO, {}, WeatherInLocation.QueryDTO>(WeatherInLocation.api);
 
-const getForecast = HTTPService
+const getForecast = OpenWeatherService
   .createRequest<ForecastInLocation.ResponseDTO, {}, ForecastInLocation.QueryDTO>(ForecastInLocation.api);
 
 interface ForecastItem extends Omit<WeatherInLocation.ResponseDTO, 'coord' | 'name'> {

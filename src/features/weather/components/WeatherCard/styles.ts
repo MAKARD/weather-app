@@ -13,19 +13,25 @@ export const styles = StyleSheet.create({
   body: {
     padding: 16,
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
     flex: 1
   },
   cityText: {
     color: colors.white,
     fontSize: 32,
-    fontWeight: '600'
+    fontWeight: '600',
+    flex: 1
   },
   temperatureText: {
     color: colors.white,
     fontWeight: '600',
 
     fontSize: 32
+  },
+  icon: {
+    width: 20,
+    height: 20,
+    tintColor: colors.white,
+    marginRight: 10
   }
 });

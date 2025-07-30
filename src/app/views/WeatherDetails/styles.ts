@@ -1,8 +1,11 @@
 import { StyleSheet } from 'react-native';
 
+import { colors } from '@/ui/colors';
+
 export const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 16
+    paddingHorizontal: 16,
+    flex: 1
   },
   header: {
     flexDirection: 'row',
@@ -17,14 +20,14 @@ export const styles = StyleSheet.create({
   },
   cityText: {
     fontSize: 34,
-    color: '#FFFFFF',
+    color: colors.white,
     textAlign: 'center',
     marginBottom: 8
   },
   temperatureText: {
     fontSize: 96,
     fontWeight: '200',
-    color: '#FFFFFF',
+    color: colors.white,
     textAlign: 'center',
     marginBottom: 4,
     marginLeft: 30
@@ -32,7 +35,7 @@ export const styles = StyleSheet.create({
   description: {
     fontSize: 20,
     fontWeight: '400',
-    color: '#FFFFFF',
+    color: colors.white,
     textAlign: 'center',
     marginBottom: 12
   },
@@ -43,7 +46,7 @@ export const styles = StyleSheet.create({
   temperatureRangeText: {
     fontSize: 16,
     fontWeight: '500',
-    color: '#FFFFFF'
+    color: colors.white
   },
   widgetsContainer: {
     flexDirection: 'row',

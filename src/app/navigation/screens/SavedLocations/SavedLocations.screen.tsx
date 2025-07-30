@@ -24,6 +24,7 @@ export const SavedLocations: React.FC = () => {
             weatherType={entry.weatherType}
             city={entry.city}
             temperature={entry.temperature}
+            iconLeft={entry.isDefault ? 'home' : undefined}
           />
         )}
       />

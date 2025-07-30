@@ -1,11 +1,11 @@
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
-import { HTTPService } from '@/infrastructure/services/HTTPService';
 import { Location } from '@/domain/models/Location.model';
 import { SearchLocation } from '@/domain/apis/geolocation.api';
+import { OpenWeatherService } from '@/infrastructure/services/HTTPService';
 
-const getLocationsList = HTTPService
+const getLocationsList = OpenWeatherService
   .createRequest<SearchLocation.ResponseDTO, {}, SearchLocation.QueryDTO>(SearchLocation.api);
 
 interface LocationsSearchStore {
