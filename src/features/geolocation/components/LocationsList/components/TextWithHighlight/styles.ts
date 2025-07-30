@@ -1,12 +1,14 @@
 import { StyleSheet } from 'react-native';
 
+import { colors } from '@/ui/colors';
+
 export const styles = StyleSheet.create({
   itemText: {
     fontSize: 16,
-    color: '#4d4d4dff'
+    color: colors.grayDark
   },
   itemTextHighlighted: {
     fontWeight: '500',
-    color: 'black'
+    color: colors.black
   }
 });

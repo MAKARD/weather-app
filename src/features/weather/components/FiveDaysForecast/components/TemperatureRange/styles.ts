@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import { colors } from '@/ui/colors';
+
 export const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
@@ -10,7 +12,7 @@ export const styles = StyleSheet.create({
   temperatureText: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: colors.white,
     width: 30
   },
   temperatureTextColder: {
@@ -20,7 +22,7 @@ export const styles = StyleSheet.create({
   },
   rangeBackground: {
     height: 5,
-    backgroundColor: 'rgba(0,0,0,.2)',
+    backgroundColor: colors.black20,
     borderRadius: 2.5
   },
   rangeForeground: {

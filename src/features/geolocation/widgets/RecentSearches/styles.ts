@@ -1,9 +1,11 @@
 import { StyleSheet } from 'react-native';
 
+import { colors } from '@/ui/colors';
+
 export const styles = StyleSheet.create({
   recentSearchesText: {
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
     paddingLeft: 16,
-    color: '#C6C6C8'
+    color: colors.grayMedium
   }
 });

@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     paddingTop: 5,
 
     borderTopWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.5)'
+    borderColor: colors.white50
   },
   blurView: {
     position: 'absolute',

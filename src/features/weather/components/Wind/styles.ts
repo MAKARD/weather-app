@@ -1,5 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
+import { colors } from '@/ui/colors';
+
 const { width } = Dimensions.get('window');
 
 const compassSize = width * 0.35;
@@ -24,17 +26,17 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   textInfoTitle: {
-    color: 'white',
+    color: colors.white,
     fontSize: 16
   },
   textInfoValue: {
-    color: 'rgba(255, 255, 255, 0.7)'
+    color: colors.white70
   },
   separator: {
     width: '100%',
     height: 1,
 
-    backgroundColor: 'rgba(255, 255, 255, 0.2)'
+    backgroundColor: colors.white20
   },
   compassInfoContainer: {
     position: 'relative',
@@ -43,18 +45,18 @@ export const styles = StyleSheet.create({
     height: compassSize
   },
   compassCenterSpeed: {
-    color: 'white',
+    color: colors.white,
     fontSize: 13
   },
   compassCenterSpeedUnit: {
-    color: 'white',
+    color: colors.white,
     fontWeight: '600',
     fontSize: 13
   },
   compassCenter: {
     position: 'absolute',
 
-    backgroundColor: 'rgba(255, 255, 255, 0.1))',
+    backgroundColor: colors.white10,
     borderRadius: '50%',
 
     width: innerCircleSize,

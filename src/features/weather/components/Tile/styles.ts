@@ -1,5 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
+import { colors } from '@/ui/colors';
+
 const { width } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
@@ -21,7 +23,7 @@ export const styles = StyleSheet.create({
   headerText: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#FFFFFF',
+    color: colors.white,
     letterSpacing: 1,
     marginBottom: 10,
     opacity: 0.5
