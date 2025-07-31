@@ -1,3 +1,5 @@
+import { TelemetryService } from '../EventsService';
+
 import { API } from '@/domain/apis/api';
 
 interface Provider {
@@ -37,8 +39,10 @@ export class HTTPService {
 
         return response;
       } catch (error) {
-        console.error('error', error);
-        // EventService.emit('network_error', error);
+        TelemetryService.emit('app:error', {
+          originalError: error,
+          context: 'HTTPService'
+        });
 
         throw error;
       }
